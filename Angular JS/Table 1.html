@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+      <div ng-controller="ctl">
+        <table>
+            <th>
+<tr>
+    <td>Name</td>
+    <td>Value</td>
+</tr>
+            </th>
+            <tr ng-repeat="row in rows | orderBy:'value'">
+                <td>{{row.name}}</td>
+                <td>{{row.value}}</td>
+            </tr>
+        </table>
+      </div>
+</body>
+<script>
+    angular.module("Myapp",[]).controller("ctl",["$scope",function($scope){
+        $scope.rows = [
+            {name:"sujyot",
+        value:700},
+        {
+            name:"sarthak",
+            value:200
+        }
+        ];
+    }]);
+</script>
+</html>

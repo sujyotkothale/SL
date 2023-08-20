@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+        <label for="str">Enter String</label>
+        <input type="text" name="str" id="str">
+        
+        <br>
+        <input type="submit" value="Submit" onclick="validate()">
+        
+   
+    <p id="ans"></p>
+   
+</body>
+<script>
+    var inpdata;
+    var d = "Palindrome";
+    var d2 = "Not Palindrome";
+    function validate(){
+        //alert("hello");
+        const data = document.getElementById("str").value;
+        const reverse = data.split('').reverse().join('');
+        inpdata = data;
+        if(data == reverse){
+            // alert("Palindrome "+reverse);
+            document.getElementById("ans").innerText = d;
+        }else{
+            //alert("not ");
+            document.getElementById("ans").innerText = d2;
+        } 
+    }
+    
+</script>
+</html>

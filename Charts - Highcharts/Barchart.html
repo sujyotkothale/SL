@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bar Chart</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <div id="chartContainer1" style="width: 600px; height: 400px;"></div>
+    <div id="chartContainer2" style="width: 600px; height: 400px;"></div>
+    <div id="chartContainer3" style="width: 600px; height: 400px;"></div>
+    <div id="chartContainer4" style="width: 600px; height: 400px;"></div>
+
+    <script>
+        // Sample data for the bar chart
+        var data = [
+            ['Category 1', 10],
+            ['Category 2', 15],
+            ['Category 3', 7],
+            ['Category 4', 12],
+            ['Category 5', 8]
+        ];
+
+        // Configuration options for the bar chart
+        var options = {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Bar Chart'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            series: [{
+                name: 'Data',
+                data: data
+            }]
+        };
+        var options2 = {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Bar Chart'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            series: [{
+                name: 'Data',
+                data: data
+            }]
+        };
+        var options3 = {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Bar Chart'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            series: [{
+                name: 'Data',
+                data: data
+            }]
+        };
+        var options4 = {
+            chart: {
+                type: 'scatter'
+            },
+            title: {
+                text: 'Bar Chart'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            series: [{
+                name: 'Data',
+                data: data
+            }]
+        };
+
+        // Create the bar chart
+        Highcharts.chart('chartContainer1', options);
+        Highcharts.chart('chartContainer2', options2);
+        Highcharts.chart('chartContainer3', options3);
+        Highcharts.chart('chartContainer4', options4);
+    </script>
+</body>
+</html>

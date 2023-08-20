@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <title>Form</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        .maindiv{
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+            margin: 0px;
+            padding-top: 100px;
+        }
+        .centerdiv{
+            border: 4px solid rgb(48, 255, 193);
+            height: 600px;
+            width: 400px;
+            background-color: aqua;
+        }
+        .formelements{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+        form{
+            padding: 10px;
+        }
+        label{
+            padding: 10px;
+        }
+        input{
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="centerdiv">
+            <div class="formelements">
+                
+                    <label for="Name">Enter Name</label><br>
+                    <input type="text" name="Name" id="Name" ng-model="name">
+                    <br>
+                    <label for="Email">Enter Email</label><br>
+                    <input type="text" name="Email" id="Email" ng-model="email">
+                    <br>
+                    <label for="Phone">Enter Number</label><br>
+                    <input type="number" name="Phone" id="Phone" ng-model="phone">
+                    <br><br>
+
+                    <p>Name :<span ng-bind="name"></span></p>
+                    <br>
+                    <p>Phone :<span ng-bind="phone"></span></p>
+                    <br>
+                    <p>Email :<span ng-bind="email"></span></p>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

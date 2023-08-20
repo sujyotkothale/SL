@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgdiv{
+            height: 400px;
+            width: 700px;
+            border: 5px solid blue;
+            position: inherit;
+        }
+        .imgclass{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center>
+            <div class="imgdiv">
+                <img class="imgclass" id="myimg" name="myimg" src="Screenshot 2023-05-19 223159.png" alt="">
+            </div>
+        </center>
+    </div>
+</body>
+<script>
+    var srci =  new Array(2);
+    srci[0] = "Screenshot (1).png";
+    srci[1] = "Screenshot 2023-05-19 223159.png";
+    var counter = 0
+    document.addEventListener('keydown',(event)=>{
+        var name = event.key;
+        var code = event.code;
+        if(event.code == "ArrowRight"){
+            counter = (counter + 1 )%2;
+            document.images["myimg"].src = srci[counter];
+        }
+        if(event.code == "ArrowLeft"){
+            counter = (counter - 1 + 2)%2;
+            document.images["myimg"].src = srci[counter];
+        }
+    })
+</script>
+</html>

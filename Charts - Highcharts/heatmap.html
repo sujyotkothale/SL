@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heatmap</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+</head>
+<body>
+    <div id="chartContainer" style="width: 600px; height: 400px;"></div>
+
+    <script>
+        // Sample data for the heatmap
+        var data = [
+            [0, 0, 10],
+            [0, 1, 20],
+            [0, 2, 30],
+            [1, 0, 40],
+            [1, 1, 50],
+            [1, 2, 60],
+            [2, 0, 70],
+            [2, 1, 80],
+            [2, 2, 90]
+        ];
+
+        // Configuration options for the heatmap
+        var options = {
+            chart: {
+                type: 'heatmap'
+            },
+            title: {
+                text: 'Heatmap'
+            },
+            xAxis: {
+                categories: ['Category 1', 'Category 2', 'Category 3']
+            },
+            yAxis: {
+                categories: ['Series 1', 'Series 2', 'Series 3'],
+                title: null
+            },
+            colorAxis: {
+                min: 0,
+                minColor: '#FFFFFF',
+                maxColor: Highcharts.getOptions().colors[0]
+            },
+            series: [{
+                name: 'Data',
+                data: data,
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000'
+                }
+            }]
+        };
+
+        // Create the heatmap
+        Highcharts.chart('chartContainer', options);
+    </script>
+</body>
+</html>
