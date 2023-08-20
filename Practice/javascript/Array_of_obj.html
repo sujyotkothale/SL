@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <body>
+            <script>
+                
+            //    var emp=["Sakshi Dhomne","101","60000"]
+            //    for(i=0;i<emp.length;i++)
+            //    {
+            //     document.write(emp[i] +"<br/>")
+            //    }
+            // var emp=new Array();
+            // emp[0]="Sakshi";
+            // emp[1]="Sarika";
+            // emp[2]="Neha";
+            // document.write("The employees are :" +"<br/>")
+            // for(i=0;i<emp.length;i++)
+            //    {
+            //     document.write(emp[i] +"<br/>")
+            //    }
+            
+            var k = "The respective values are :";
+        function Geeks() {
+            var input = document.getElementsByName('array[]');
+ 
+            for (var i = 0; i < input.length; i++) {
+                var a = input[i];
+                k = k + "array[" + i + "].value= "
+                                   + a.value + " ";
+            }
+            
+ 
+            document.getElementById("par").innerHTML = k;
+            document.getElementById("po").innerHTML = "Output";
+        }
+    
+            </script>
+        </body>
+    </head>
+</html>

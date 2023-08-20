@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="blogApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-controller="BlogController">
+    <form ng-submit="addBlogPost()">
+        <h2>Blog Post</h2>
+        <input type="text" ng-model="newPost.title" placeholder="Title"><br>
+        <textarea ng-model="newPost.content" placeholder="Content"></textarea><br>
+        <input type="text" ng-model="newPost.author" placeholder="Author"><br>
+        <input type="date" ng-model="newPost.date"><br>
+        <button type="submit">Add Post</button>
+    </form>
+    
+    <div class="blog">
+        <div class="post" ng-repeat="post in blogPosts">
+            <h2>{{ post.title }}</h2>
+            <p><strong>Author:</strong> {{ post.author }}</p>
+            <p><strong>Date:</strong> {{ post.date | date:'mediumDate' }}</p>
+            <p>{{ post.content }}</p>
+        </div>
+    </div>
+
+    <div class="personal-info">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> john@example.com</p>
+        <p><strong>Location:</strong> City, Country</p>
+    </div>
+
+    <div class="education">
+        <h2>Educational Details</h2>
+        <p><strong>University:</strong> ABC University</p>
+        <p><strong>Major:</strong> Computer Science</p>
+        <p><strong>Degree:</strong> Bachelor of Science</p>
+        <p><strong>Graduation Year:</strong> 20XX</p>
+    </div>
+
+    <div class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+        </ul>
+    </div>
+
+    <script>
+        var app = angular.module('blogApp', []);
+        
+        app.controller('BlogController', function($scope) {
+            $scope.blogPosts = []; // Initialize the array to hold blog posts
+            $scope.newPost = {};   // Initialize the object for new blog posts
+            
+            $scope.addBlogPost = function() {
+                // Push the new post object to the array and reset the newPost object
+                $scope.blogPosts.push(angular.copy($scope.newPost));
+                $scope.newPost = {};
+            };
+        });
+    </script>
+</body>
+</html>

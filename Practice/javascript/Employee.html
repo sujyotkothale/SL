@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <body >
+      <script>
+        class Employee {
+          constructor(name, eid, salary, yearsOfExperience) {
+            this.name = name;
+            this.eid = eid;
+            this.salary = salary;
+            this.yearsOfExperience = yearsOfExperience;
+          }
+
+          addIncrement() {
+            let increment = 0.0;
+            if (this.yearsOfExperience > 5) {
+              increment = this.salary * 0.2;
+            } else {
+              increment = this.salary * 0.15;
+            }
+            this.salary += increment;
+          }
+
+          toString() {
+            return `Name: ${this.name} , EID: ${this.eid}, Salary: ${this.salary}, Years of Experience: ${this.yearsOfExperience}`;
+          }
+        }
+
+        let employees = [];
+        let numOfEmployees = prompt("Enter the number of employees:");
+
+        for (let i = 1; i <= numOfEmployees; i++) {
+          let name = prompt(`Enter name of Employee ${i}:`);
+          let eid = parseInt(prompt(`Enter Employee ID of Employee ${i}:`));
+          let salary = parseFloat(prompt(`Enter Salary of Employee ${i}:`));
+          let yearsOfExperience = parseInt(
+            prompt(`Enter Years of Experience of Employee ${i}:`)
+          );
+          let employee = new Employee(name, eid, salary, yearsOfExperience);
+          employees.push(employee);
+        }
+
+        let confirmAddIncrement = confirm(
+          "Do you want to add increment to each employee?"
+        );
+        if (confirmAddIncrement) {
+          for (let employee of employees) {
+            employee.addIncrement();
+            document.write(employee.toString());
+          }
+        } else {
+          for (let employee of employees) {
+            documemt.write(employee.toString());
+          }
+        }
+      </script>
+    </body>
+  </head>
+</html>
+/

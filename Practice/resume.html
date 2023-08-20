@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="resumeApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .resume {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        h1, h2 {
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body ng-controller="ResumeController">
+    <div class="container">
+        <h1>Resume Builder</h1>
+        <form>
+            <input type="text" ng-model="resume.name" placeholder="Name"><br>
+            <input type="text" ng-model="resume.email" placeholder="Email"><br>
+            <textarea ng-model="resume.summary" placeholder="Summary"></textarea><br>
+            
+            <h2>Education</h2>
+            <input type="text" ng-model="resume.education.degree" placeholder="Degree">
+            <input type="text" ng-model="resume.education.school" placeholder="School">
+            <input type="text" ng-model="resume.education.year" placeholder="Year"><br>
+            
+            <h2>Work Experience</h2>
+            <input type="text" ng-model="resume.experience.company" placeholder="Company">
+            <input type="text" ng-model="resume.experience.title" placeholder="Title">
+            <textarea ng-model="resume.experience.description" placeholder="Description"></textarea>
+        </form>
+        <div class="resume">
+            <h1>{{ resume.name }}</h1>
+            <p>Email: {{ resume.email }}</p>
+            <p>Summary: {{ resume.summary }}</p>
+            
+            <h2>Education</h2>
+            <p>{{ resume.education.degree }}, {{ resume.education.school }} ({{ resume.education.year }})</p>
+            
+            <h2>Work Experience</h2>
+            <p>{{ resume.experience.title }} at {{ resume.experience.company }}</p>
+            <p>{{ resume.experience.description }}</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('resumeApp', []);
+        
+        app.controller('ResumeController', function($scope) {
+            $scope.resume = {
+                education: {},
+                experience: {}
+            }; // Initialize the resume object
+        });
+    </script>
+</body>
+</html>

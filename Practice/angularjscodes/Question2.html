@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body bgcolor="pink">
+
+<marquee behavior="" direction="">RCOEM CSE</marquee>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+
+<table border="1" width="100%">
+<tr>
+<th ng-click="orderByMe('name')">Name</th>
+<th ng-click="orderByMe('postt')">Post</th>
+<th ng-click="orderByMe('Experience')">Experience</th>
+<th ng-click="orderByMe('Awards')">Awards</th>
+<th ng-click="orderByMe('Qualification')">Qualification</th>
+</tr>
+<tr ng-repeat="x in names | orderBy:myOrderBy">
+<td>{{x.name}}</td>
+<td>{{x.postt}}</td>
+<td>{{x.Experience}}</td>
+<td>{{x.Awards}}</td>
+<td>{{x.Qualification}}</td>
+</tr>
+</table>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name:'Prof. Sweta Vinodkumar Jain',postt:'Assistant Professor',Experience:'Teaching : 22.0 / Industrial : 0.0 / Research : 0.0',Awards:'First Merit in RTMNU M.Tech Computer Science and Engineering in Summer 2009 examination',Qualification : 'M.Tech and Ph.D. Registered '},
+        {name:'Dr. Shubhangi Kishore Neware',postt:'Assistant Professor',Experience:'Teaching : 20.0 / Industrial : 0.0 / Research : 0.0',Awards:' -- ',Qualification : 'M.Tech and Ph.D'},
+        {name:'Prof. Shailendra S Aote',postt:'Assistant Professor',Experience:'Teaching : 5.5 / Industrial : 0.0 / Research : 4.5 ',Awards:'RCOEM Young Research Award - 2018',Qualification : 'M.Tech and Ph.D'},
+        {name:'Dr. Swati Hira',postt:'Assistant Professor',Experience:'Teaching : 22.0 / Industrial : 0.0 / Research : 0.0',Awards:'Net Qualified Best paper AWARD Best Poster presentation award',Qualification : 'M.Tech and Ph.D. Registered ',Qualification : 'M.Tech and Ph.D. '},
+        {name:'Prof. Vrushali K Bongirwar',postt:'Assistant Professor',Experience:'Teaching : 22.0 / Industrial : 0.0 / Research : 0.0',Awards:'First Merit in M. Tech. (C.S.E.) summer 2011.',Qualification : ' M.Tech and Ph.D. Registered '},
+        ];
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
+});
+</script>
+
+</body>
+</html>

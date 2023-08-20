@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <body >
+      <script>
+        // program to count the number of vowels in a string
+
+        function countVowel(str) {
+          const count = str.match(/[aeiou]/gi).length;
+
+          return count;
+        }
+
+        const string = prompt("Enter a string to count the vowels: ");
+
+        const result = countVowel(string);
+        document.write("The number of vowels in the string are :"+ "<br/>");
+        document.write(result);
+      </script>
+    </body>
+  </head>
+</html>

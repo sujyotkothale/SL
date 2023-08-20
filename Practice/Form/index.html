@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <marquee>Welcome to Shri Ramdeobaba College of Engineering and Management</marquee>
+ <title>Exam Registration form</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+   function validateForm() {
+      // Personal Information
+      var name = document.forms["registrationForm"]["name"].value;
+      var Password=document.forms["registrationForm"]["Password"].value;
+      var CPassword=document.forms["registrationForm"]["CPassword"].value;
+      var email = document.forms["registrationForm"]["email"].value;
+      var mobile = document.forms["registrationForm"]["mobile"].value;
+      var dob = document.forms["registrationForm"]["dob"].value;
+
+
+      // Educational Information
+      var xMarks = document.forms["registrationForm"]["xMarks"].value;
+      var xiMarks = document.forms["registrationForm"]["xiMarks"].value;
+
+      // Payment Details
+      var paymentMethod = document.forms["registrationForm"]["paymentMethod"].value;
+      var cardNumber = document.forms["registrationForm"]["cardNumber"].value;
+      var upiID = document.forms["registrationForm"]["upiID"].value;
+
+      // Validate Personal Information
+      if (name == "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+
+      if (!/^[a-zA-Z ]+$/.test(name)) {
+        alert("Name should not contain digits or special characters.");
+        return false;
+      }
+      if (CPassword != Password){
+        alert( "*Password and Confirm password should match!");
+        return false;
+    }
+      
+      
+
+      if (email == "") {
+        alert("Please enter your email address.");
+        return false;
+      }
+
+      if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (mobile == "") {
+        alert("Please enter your mobile number.");
+        return false;
+      }
+
+      if (!/^[7-9]\d{9}$/.test(mobile)) {
+        alert("Mobile number should be 10 digits long and start with 7, 8, or 9.");
+        return false;
+      }
+   
+      
+      var today = new Date();
+      var dobDate = new Date(dob);
+      var age = today.getFullYear() - dobDate.getFullYear();
+
+      if (age <= 18 || age >= 25) {
+        alert("Age should be between 18 and 25.");
+        return false;
+      }
+
+      // Validate Educational Information
+      if (xMarks == "") {
+        alert("Please enter your X marks.");
+        return false;
+      }
+
+      if (xiMarks == "") {
+        alert("Please enter your XII marks.");
+        return false;
+      }
+
+      // Validate Payment Details
+      if (paymentMethod == "Card") {
+        if (cardNumber == "") {
+          alert("Please enter your card number.");
+          return false;
+        }
+       
+        else if(!/(^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4})$/.test(cardNumber)){
+        alert("Invalid card number");
+        return false;
+       }
+       else{
+        return true;
+       }
+
+        // You can add additional card validation logic here.
+      }
+
+      if (paymentMethod == "UPI") {
+        if (upiID == "") {
+          alert("Please enter your UPI ID.");
+          return false;
+        }
+
+        // You can add additional UPI ID validation logic here.
+      //  const cardNumberInput = document.getElementById('cardNumber');
+     
+      
+      }
+    }
+    function formatCardNumber() {
+    const cardNumberInput = document.getElementById('cardNumber');
+    let cardNumber = cardNumberInput.value
+    let finalcard='';
+    
+    cardNumber = cardNumber.replace(/-/g, '');
+    for(let i=0;i<cardNumber.length;i++){
+      finalcard+=cardNumber[i];
+      if((i+1)%4==0 && i!=(cardNumber.length-1)){
+        finalcard+='-';
+      }
+
+    }
+   cardNumberInput.value=finalcard;
+  }
+    
+  </script>
+</head>
+<body>
+  <h1> <center>📄 <i> <b><u>Registration Form </u></b></i> 📄</center></h1>
+  <br>
+  <form name="registrationForm" onsubmit="return validateForm()" action="Thanks.html">
+    <h2><u>Personal Information</u></h2>
+    <label><b>Name:</label>
+    <input type="text" name="name" required placeholder="Enter your name"><br>
+    <label>Password *:</label>
+    <input type="text" name="Password" required placeholder="Enter your Password"><br>
+    <label>Confirm Password:</label>
+    <input type="text" name="CPassword" required placeholder="Re-Enter your Password"><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" required placeholder="Enter your email"><br>
+    <br>
+
+    <label>Mobile:</label>
+    <input type="text" name="mobile" required placeholder="Enter your mobile no."><br>
+
+    <label>Date of Birth:</label>
+    <input type="date" name="dob"><br>
+<br>
+    <h2><u>Educational Information</u></h2>
+    <label>X Marks:</label>
+    <input type="text" name="xMarks" required placeholder="Enter your marks"><br>
+
+    <label>XII Marks:</label>
+    <input type="text" name="xiMarks" required placeholder="Enter your marks"><br>
+
+    <label>College/University:</label>
+    <input type="text" name="college" placeholder="Enter your college name"><br>
+
+    <label>Degree:</label>
+    <input type="text" name="degree" placeholder="Enter your degree"><br>
+
+    <label>Field of Study:</label>
+    <input type="text" name="fieldOfStudy" placeholder="Enter your field"><br>
+
+    <h2><u>Payment Details</u></h2>
+    <label>Payment Method:</label>
+    <select name="paymentMethod">
+      <option value="Select the Payment Method">Select the Payment Method</option>
+      <option value="Card">Card </option>
+      <option value="UPI">UPI</option>
+      <option value="Other">Other</option>
+    </select><br>
+
+    <label>Card Number:</label>
+    <input type="text"  id="cardNumber" name="cardNumber" placeholder="Enter the card number" oninput="formatCardNumber()"><br>
+
+    <label>UPI ID:</label>
+    <input type="text" name="upiID" placeholder="Enter UPI ID"><br>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</body>
+</html>
+</html>
+  

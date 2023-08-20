@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body bgcolor="pink">
+
+<div ng-app="Question1" ng-controller="orderCtrl">
+    <h1>In Ascending order order</h1>
+<ul>
+<li ng-repeat="x in weekdays | orderBy : 'name'">
+     {{x.name}}
+</li>
+</ul>
+
+<h1>In descending order</h1>
+<ul>
+    <li ng-repeat="x in weekdays | orderBy : 'name' :'true'">
+         {{x.name}}
+    </li>
+    </ul>
+</div>
+
+<script>
+var app = angular.module('Question1', []);
+app.controller('orderCtrl', function($scope) {
+    $scope.weekdays = [
+        {"name" : "Monday" },
+        {"name" : "Tuesday"},
+        {"name" : "Wednesday"},
+        {"name" : "Thursday"},
+        {"name" : "Friday"},
+        {"name" : "Saturday"},
+        {"name" : "Sunday"}
+    ];
+});
+</script>
+
+
+
+</body>
+</html>

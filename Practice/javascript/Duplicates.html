@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <body >
+      <script>
+        e = new Array();
+        for (i = 0; i < 4; i++) {
+          e[i] = prompt("Enter number of elements in an array: ");
+        }
+        document.write("These are duplicate elements :" + "<br/>");
+        for (i = 0; i < e.length; i++) {
+          document.write(e[i] + "<br/>");
+        }
+        function getuniq() {
+          return [...new Set(e)];
+        }
+        document.write("Array without duplicate elements :" + "<br/>");
+        document.write(getuniq(e));
+        // console.log(getuniq(e));
+      </script>
+    </body>
+  </head>
+</html>

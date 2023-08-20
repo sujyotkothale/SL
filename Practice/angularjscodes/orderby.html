@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="orderCtrl">
+
+<ul>
+<li ng-repeat="x in customers | orderBy : '-city'">
+    {{x.name + ", " + x.city}}
+</li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('orderCtrl', function($scope) {
+    $scope.customers = [
+        {"name" : "Bottom-Dollar Marketse" ,"city" : "Tsawassen"},
+        {"name" : "Alfreds Futterkiste", "city" : "Berlin"},
+        {"name" : "Bon app", "city" : "Marseille"},
+        {"name" : "Cactus Comidas para llevar", "city" : "Buenos Aires"},
+        {"name" : "Bolido Comidas preparadas", "city" : "Madrid"},
+        {"name" : "Around the Horn", "city" : "London"},
+        {"name" : "B's Beverages", "city" : "London"}
+    ];
+});
+</script>
+
+<p>Use the minus sign to sort descending (-city).</p>
+
+</body>
+</html>
